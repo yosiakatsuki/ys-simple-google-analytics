@@ -29,50 +29,38 @@
 /**
  *	Ys_Simple_Google_Analytics
  */
-class Ys_Simple_Google_Analytics {
 
-	/**
-	 * __construct
-	 */
-	public function __construct() {
-		add_action( 'plugins_loaded', array( $this, 'initialize' ) );
+/**
+ * actions
+ */
+
+/**
+ * GAタグを出力
+ */
+function yssga_the_google_analytics_tag() {
+	echo yssga_get_the_google_analytics_tag();
+}
+add_action( 'wp_head', 'yssga_the_google_analytics_tag' );
+
+/**
+ * headに出力するGAタグを取得
+ *
+ * @return string headタグに出力するGoogle Analyticsのコード
+ */
+function yssga_get_the_google_analytics_tag() {
+
+	$tracking_id = get_option( 'YSSGA_GA_Tracking_ID', '' );
+
+	if ( '' == $tracking_id ) {
+		return '';
 	}
 
-	/**
-	 * initialize
-	 */
-	public function initialize() {
-		add_action( 'admin_menu', array( $this, 'admin_menu' ) );
-		add_action( 'admin_init', array( $this, 'admin_init' ) );
-		add_action( 'wp_head', array( $this, 'the_google_analytics_tag' ) );
-	}
+	$tracking_code = "ga('create', '{$tracking_id}', 'auto');" . PHP_EOL;
+	$tracking_code .= "ga('send', 'pageview');";
 
-	/**
-	 * GAタグを出力
-	 */
-	public function the_google_analytics_tag() {
-		echo $this->get_the_google_analytics_tag();
-	}
+	$tracking_code = apply_filters( 'yssga_ga_tracking_code', $tracking_code );
 
-	/**
-	 * headに出力するGAタグを取得
-	 *
-	 * @return string headタグに出力するGoogle Analyticsのコード
-	 */
-	public function get_the_google_analytics_tag() {
-
-		$tracking_id = get_option( 'YSSGA_GA_Tracking_ID', '' );
-
-		if ( '' == $tracking_id ) {
-			return '';
-		}
-
-		$tracking_code = "ga('create', '{$tracking_id}', 'auto');" . PHP_EOL;
-		$tracking_code .= "ga('send', 'pageview');";
-
-		$tracking_code = apply_filters( 'YSSGA_GA_Tracking_Code', $tracking_code );
-
-		$tag = <<<EOD
+	$tag = <<<EOD
 <script>
 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -81,45 +69,47 @@ m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 {$tracking_code}
 </script>
 EOD;
-		return $tag;
+	return $tag;
+}
+
+/**
+ * 設定ページの追加
+ */
+function yssga_admin_menu() {
+
+	add_options_page(
+		__( 'YS Simple Google Analytics', 'ys-simple-google-analytics' ),
+		__( 'YS Simple Google Analytics', 'ys-simple-google-analytics' ),
+		'manage_options',
+		'ys-simple-google-analytics',
+		'yssga_options_page'
+	);
+}
+add_action( 'admin_menu', 'yssga_admin_menu' );
+
+/**
+ * 設定項目準備
+ */
+function yssga_admin_init() {
+	register_setting(
+		'YSSGA_Settings',
+		'YSSGA_GA_Tracking_ID',
+		'esc_attr'
+	);
+}
+add_action( 'admin_init', 'yssga_admin_init' );
+
+/**
+ * 設定ページ
+ */
+function yssga_options_page() {
+	if ( ! current_user_can( 'manage_options' ) ) {
+		wp_die( __( 'You do not have sufficient permissions to access this page.' ) );
 	}
+	?>
 
-	/**
-	 * 設定ページの追加
-	 */
-	public function admin_menu() {
-
-		add_options_page(
-			__( 'YS Simple Google Analytics', 'ys-simple-google-analytics' ),
-			__( 'YS Simple Google Analytics', 'ys-simple-google-analytics' ),
-			'manage_options',
-			'ys-simple-google-analytics',
-			array( $this, 'options_page' )
-		);
-	}
-
-	/**
-	 * 設定項目準備
-	 */
-	public function admin_init() {
-		register_setting(
-			'YSSGA_Settings',
-			'YSSGA_GA_Tracking_ID',
-			'esc_attr'
-		);
-	}
-
-	/**
-	 * 設定ページ
-	 */
-	public function options_page() {
-		if ( ! current_user_can( 'manage_options' ) ) {
-			wp_die( __( 'You do not have sufficient permissions to access this page.' ) );
-		}
-		?>
-
-<div class="wrap">
-<h2><?php esc_html_e( 'YS Sinmple Google Analytics', 'ys-simple-google-analytics' ); ?></h2>
+	<div class="wrap">
+	<h2><?php esc_html_e( 'YS Sinmple Google Analytics', 'ys-simple-google-analytics' ); ?></h2>
 	<form method="post" action="options.php">
 
 	<?php
@@ -146,9 +136,6 @@ EOD;
 	</div>
 	<?php submit_button(); ?>
 	</form>
-</div><!-- /.warp -->
-		<?php
-	}
-
+	</div><!-- /.warp -->
+<?php
 }
-$yssga = new Ys_Simple_Google_Analytics;
