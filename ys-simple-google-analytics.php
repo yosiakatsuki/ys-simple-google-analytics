@@ -88,8 +88,8 @@ EOD;
 	 */
 	public function admin_menu() {
 		add_options_page(
-					__( 'Google Analytics', 'ys-simple-google-analytics' ),
-					__( 'Google Analytics', 'ys-simple-google-analytics' ),
+					__( 'YS Simple Google Analytics', 'ys-simple-google-analytics' ),
+					__( 'YS Simple Google Analytics', 'ys-simple-google-analytics' ),
 					'manage_options',
 					'ys-simple-google-analytics',
 					array( $this, 'options_page' )
