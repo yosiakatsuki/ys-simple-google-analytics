@@ -17,9 +17,8 @@ class Get_GA_Script_Tag_Test extends WP_UnitTestCase {
 		// 設定追加
 		update_option( 'YSSGA_GA_Tracking_ID', 'UA-12345678-0' );
 
-
-		$YSSGA = new Ys_Simple_Google_Analytics();
-		$html = $YSSGA->get_the_google_analytics_tag();
+		$yssga = new Ys_Simple_Google_Analytics();
+		$html = $yssga->get_the_google_analytics_tag();
 		// 出力されるはずのscriptタグ
 		$result = <<<EOD
 <script>
@@ -32,7 +31,6 @@ ga('send', 'pageview');
 </script>
 EOD;
 
-
 		$this->assertEquals( $result, $html );
 	}
 
@@ -44,9 +42,8 @@ EOD;
 		// 設定追加
 		update_option( 'YSSGA_GA_Tracking_ID', '' );
 
-		$YSSGA = new Ys_Simple_Google_Analytics();
-		$html = $YSSGA->get_the_google_analytics_tag();
-
+		$yssga = new Ys_Simple_Google_Analytics();
+		$html = $yssga->get_the_google_analytics_tag();
 
 		$this->assertEquals( '', $html );
 	}
