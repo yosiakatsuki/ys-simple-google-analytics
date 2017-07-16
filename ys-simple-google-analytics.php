@@ -63,11 +63,11 @@ class Ys_Simple_Google_Analytics {
 
 		$tracking_id = get_option( 'YSSGA_GA_Tracking_ID', '' );
 
-		if( '' == $tracking_id ) {
+		if ( '' == $tracking_id ) {
 			return '';
 		}
 
-		$tracking_code = "ga('create', '{$tracking_id}', 'auto');".PHP_EOL;
+		$tracking_code = "ga('create', '{$tracking_id}', 'auto');" . PHP_EOL;
 		$tracking_code .= "ga('send', 'pageview');";
 
 		$tracking_code = apply_filters( 'YSSGA_GA_Tracking_Code', $tracking_code );
@@ -150,7 +150,7 @@ EOD;
 		<?php
 	}
 
-}// end Class
-
+}
+// end Ys_Simple_Google_Analytics
 
 $yssga = new Ys_Simple_Google_Analytics;
