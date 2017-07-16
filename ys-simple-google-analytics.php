@@ -56,13 +56,14 @@ class Ys_Simple_Google_Analytics {
 
 	/**
 	 * headに出力するGAタグを取得
+	 *
 	 * @return string headタグに出力するGoogle Analyticsのコード
 	 */
 	public function get_the_google_analytics_tag() {
 
 		$tracking_id = get_option( 'YSSGA_GA_Tracking_ID', '' );
 
-		if( '' == $tracking_id ){
+		if( '' == $tracking_id ) {
 			return '';
 		}
 
@@ -87,13 +88,14 @@ EOD;
 	 * 設定ページの追加
 	 */
 	public function admin_menu() {
+
 		add_options_page(
-					__( 'YS Simple Google Analytics', 'ys-simple-google-analytics' ),
-					__( 'YS Simple Google Analytics', 'ys-simple-google-analytics' ),
-					'manage_options',
-					'ys-simple-google-analytics',
-					array( $this, 'options_page' )
-				);
+			__( 'YS Simple Google Analytics', 'ys-simple-google-analytics' ),
+			__( 'YS Simple Google Analytics', 'ys-simple-google-analytics' ),
+			'manage_options',
+			'ys-simple-google-analytics',
+			array( $this, 'options_page' )
+		);
 	}
 
 	/**
@@ -111,11 +113,10 @@ EOD;
 	 * 設定ページ
 	 */
 	public function options_page() {
-if (!current_user_can('manage_options'))
-		{
-			wp_die( __('You do not have sufficient permissions to access this page.') );
+		if ( ! current_user_can( 'manage_options' ) ) {
+			wp_die( __( 'You do not have sufficient permissions to access this page.' ) );
 		}
-?>
+		?>
 
 <div class="wrap">
 <h2><?php esc_html_e( 'YS Sinmple Google Analytics', 'ys-simple-google-analytics' ); ?></h2>
@@ -149,7 +150,7 @@ if (!current_user_can('manage_options'))
 		<?php
 	}
 
-}// end Ys_Simple_Google_Analytics
+}// end Class
 
 
 $yssga = new Ys_Simple_Google_Analytics;
