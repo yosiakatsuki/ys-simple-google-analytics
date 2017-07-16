@@ -151,6 +151,4 @@ EOD;
 	}
 
 }
-// end Ys_Simple_Google_Analytics
-
 $yssga = new Ys_Simple_Google_Analytics;
