@@ -31,10 +31,6 @@
  */
 
 /**
- * actions
- */
-
-/**
  * GAタグを出力
  */
 function yssga_the_google_analytics_tag() {
@@ -43,7 +39,7 @@ function yssga_the_google_analytics_tag() {
 add_action( 'wp_head', 'yssga_the_google_analytics_tag' );
 
 /**
- * headに出力するGAタグを取得
+ * Headに出力するGAタグを取得
  *
  * @return string headタグに出力するGoogle Analyticsのコード
  */
