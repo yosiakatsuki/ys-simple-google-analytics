@@ -1,5 +1,5 @@
 # Ys Simple Google Analytics #
-**Contributors:** (this should be a list of wordpress.org userid's)  
+**Contributors:** yosiakatsuki  
 **Donate link:** http://amzn.asia/h4yxRCX  
 **Tags:** google analytics  
 **Requires at least:** 4.4  
@@ -9,6 +9,8 @@
 **License URI:** http://www.gnu.org/licenses/gpl-2.0.html  
 
 This plugin enables Google Analytics for your WordPress site.
+
+[![Build Status](https://travis-ci.org/yosiakatsuki/ys-simple-google-analytics.svg?branch=master)](https://travis-ci.org/yosiakatsuki/ys-simple-google-analytics)
 
 ## Description ##
 
