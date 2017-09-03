@@ -30,7 +30,7 @@
  * Ys_Simple_Google_Analytics
  */
 function yssga_load_plugin() {
-    load_plugin_textdomain( 'ys-simple-google-analytics', FALSE, basename( dirname( __FILE__ ) ) . '/languages/' );
+	load_plugin_textdomain( 'ys-simple-google-analytics', false, basename( dirname( __FILE__ ) ) . '/languages/' );
 }
 add_action( 'plugins_loaded', 'yssga_load_plugin' );
 
