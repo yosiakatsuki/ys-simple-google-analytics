@@ -109,7 +109,6 @@ function yssga_options_page() {
 		$tracking_id = get_option( 'YSSGA_GA_Tracking_ID', '' );
 	?>
 
-	<h2><?php esc_html_e( 'YS Simple Google Analytics', 'ys-simple-google-analytics' ); ?></h2>
 	<div class="inside">
 		<p><?php esc_html_e( 'Enter your Google Analytics tracking code below.', 'ys-simple-google-analytics' ); ?></p>
 		<table class="form-table">
