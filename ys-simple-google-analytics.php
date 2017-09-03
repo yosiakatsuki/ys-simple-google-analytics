@@ -7,7 +7,7 @@
  * Author URI:      https://yosiakatsuki.net/
  * Text Domain:     ys-simple-google-analytics
  * Domain Path:     /languages
- * Version:         0.1.0
+ * Version:         1.0.0
  *
  * @package         Ys_Simple_Google_Analytics
  */
@@ -118,8 +118,7 @@ function yssga_options_page() {
 		<table class="form-table">
 			<tr valign="top">
 				<th style="min-width:230px;">
-					Google Analytics Tracking ID<br />
-					(Universal Analytics)
+					<?php esc_html_e( 'Google Analytics Tracking ID (Universal Analytics)', 'ys-simple-google-analytics' ); ?>
 				</th>
 				<td scope="row">
 					<input type="text" name="YSSGA_GA_Tracking_ID" id="YSSGA_GA_Tracking_ID" value="<?php echo esc_attr( $tracking_id ); ?>" placeholder="UA-00000000-0" />
