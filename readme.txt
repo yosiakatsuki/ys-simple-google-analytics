@@ -9,6 +9,8 @@ License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 [![Build Status](https://travis-ci.org/yosiakatsuki/ys-simple-google-analytics.svg?branch=master)](https://travis-ci.org/yosiakatsuki/ys-simple-google-analytics)
+[![WordPress](https://img.shields.io/wordpress/v/ys-simple-google-analytics.svg)](https://wordpress.org/plugins/ys-simple-google-analytics/)
+[![WordPress plugin](https://img.shields.io/wordpress/plugin/v/ys-simple-google-analytics.svg)](https://wordpress.org/plugins/ys-simple-google-analytics/)
 
 This plugin enables Google Analytics for your WordPress site.
 
