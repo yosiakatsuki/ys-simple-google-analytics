@@ -31,8 +31,12 @@ matrix:
       env: WP_VERSION=trunk
     - php: 5.6
       env: WP_TRAVISCI=phpcs
+<<<<<<< HEAD
     - php: 5.3
       dist: trusty
+=======
+    - php: 5.3.29
+>>>>>>> 7f000417c312797e22bb8ccaf8ccd8eef8d20771
       env: WP_VERSION=latest
 
 before_script:
