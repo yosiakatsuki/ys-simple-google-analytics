@@ -27,7 +27,7 @@
 */
 
 /**
- *	Ys_Simple_Google_Analytics
+ * Ys_Simple_Google_Analytics
  */
 
 /**
