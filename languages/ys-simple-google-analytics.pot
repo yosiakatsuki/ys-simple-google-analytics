@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: Ys Simple Google Analytics 0.1.0\n"
 "Report-Msgid-Bugs-To: "
 "https://wordpress.org/support/plugin/ys-simple-google-analytics\n"
-"POT-Creation-Date: 2017-09-03 01:03:00+00:00\n"
+"POT-Creation-Date: 2017-09-03 02:43:19+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -25,17 +25,17 @@ msgstr ""
 "X-Poedit-Bookmarks: \n"
 "X-Textdomain-Support: yes\n"
 
-#: ys-simple-google-analytics.php:71 ys-simple-google-analytics.php:72
-#: ys-simple-google-analytics.php:102
+#: ys-simple-google-analytics.php:75 ys-simple-google-analytics.php:76
+#: ys-simple-google-analytics.php:106
 msgid "YS Simple Google Analytics"
 msgstr ""
 
-#: ys-simple-google-analytics.php:97
+#: ys-simple-google-analytics.php:101
 msgid "You do not have sufficient permissions to access this page."
 msgstr ""
 
-#: ys-simple-google-analytics.php:113
-msgid "Enter your Google Analytics tracking code below."
+#: ys-simple-google-analytics.php:117
+msgid "Enter your Google Analytics tracking ID below."
 msgstr ""
 
 #. Plugin Name of the plugin/theme

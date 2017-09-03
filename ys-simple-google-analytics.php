@@ -114,11 +114,11 @@ function yssga_options_page() {
 	?>
 
 	<div class="inside">
-		<p><?php esc_html_e( 'Enter your Google Analytics tracking code below.', 'ys-simple-google-analytics' ); ?></p>
+		<p><?php esc_html_e( 'Enter your Google Analytics tracking ID below.', 'ys-simple-google-analytics' ); ?></p>
 		<table class="form-table">
 			<tr valign="top">
 				<th style="min-width:230px;">
-					Google Analytics Tracking Code<br />
+					Google Analytics Tracking ID<br />
 					(Universal Analytics)
 				</th>
 				<td scope="row">
